@@ -2,12 +2,12 @@
   <section class="container">
     <img src="~assets/img/logo.png" alt="Nuxt.js Logo" class="logo" />
     <h1 class="title">
-      USERS
+      Drink MENU
     </h1>
-    <ul class="users">
-      <li v-for="(user, index) in users" :key="index" class="user">
-        <nuxt-link :to="{ name: 'id', params: { id: index }}">
-          {{ user.name }}
+    <ul class="drinkList">
+      <li v-for="(drink, index) in drinks" :key="index" class="drinkItem">
+        <nuxt-link :to="{name:'drinks-id', params: { id: index }}">
+          {{ drink.name }}
         </nuxt-link>
       </li>
     </ul>
@@ -19,12 +19,12 @@ import axios from '~/plugins/axios'
 
 export default {
   async asyncData () {
-    let { data } = await axios.get('/api/users')
-    return { users: data }
+    let { data } = await axios.get('/api/drinks')
+    return { drinks: data }
   },
   head () {
     return {
-      title: 'Users'
+      title: 'Drink MENU'
     }
   }
 }
@@ -35,13 +35,13 @@ export default {
 {
   margin: 30px 0;
 }
-.users
+.drinkList
 {
   list-style: none;
   margin: 0;
   padding: 0;
 }
-.user
+.drinkItem
 {
   margin: 10px 0;
 }
