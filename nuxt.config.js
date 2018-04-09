@@ -16,7 +16,10 @@ module.exports = {
   /*
   ** Global CSS
   */
-  css: ['~/assets/css/main.css'],
+  css: [
+    '~/assets/css/main.css',
+    'element-ui/lib/theme-chalk/index.css'
+  ],
   /*
   ** Add axios globally
   */
@@ -35,5 +38,8 @@ module.exports = {
         })
       }
     }
-  }
+  },
+  plugins: [
+    '~plugins/element-ui'
+  ],
 }
