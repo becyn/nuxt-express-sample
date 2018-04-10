@@ -24,6 +24,7 @@ module.exports = {
   ** Add axios globally
   */
   build: {
+    ssr: false,
     vendor: ['axios'],
     /*
     ** Run ESLINT on save
@@ -42,4 +43,5 @@ module.exports = {
   plugins: [
     '~plugins/element-ui'
   ],
+	mode: 'spa',
 }
