@@ -22,28 +22,34 @@
   </section>
 </template>
 
-<script>
+<script lang="ts">
+import Vue from 'vue'
 import axios from '~/plugins/axios'
 
-export default {
-  async asyncData () {
-    let { data } = await axios.get('/api/drinks')
-    return { drinks: data }
-  },
-  head () {
-    return {
-      title: 'Drink MENU'
-    }
-  },
+export default class index extends Vue {
   data () {
     return {
       drinks: []
     }
-  },
-  methods: {
-    formatter (row, column) {
-      return `${row[column.property]}yen`
+  }
+  async getDrinks () {
+    console.log('getDrinks')
+    const { data } = await axios.get('/api/drinks')
+    console.log('data', data)
+
+    return data
+  }
+  asyncData () {
+    const drinks = this.getDrinks()
+    return { drinks }
+  }
+  head () {
+    return {
+      title: 'Drink MENU'
     }
+  }
+  formatter (row, column) {
+    return `${row[column.property]}yen`
   }
 }
 </script>

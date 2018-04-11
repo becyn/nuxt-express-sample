@@ -13,11 +13,20 @@
   </section>
 </template>
 
-<script>
+<script lang="ts">
+import Vue from 'vue'
 import axios from '~/plugins/axios'
+// import Component from 'nuxt-class-component'
 
-export default {
-  name: 'id',
+// @Component({
+//   head () {
+//     return {
+//       title: `User: ${this.user.name}`
+//     }
+//   }
+// })
+
+export default class id extends Vue {
   asyncData ({ params, error }) {
     return axios.get('/api/users/' + params.id)
       .then((res) => {
@@ -26,11 +35,6 @@ export default {
       .catch((e) => {
         error({ statusCode: 404, message: 'User not found' })
       })
-  },
-  head () {
-    return {
-      title: `User: ${this.user.name}`
-    }
   }
 }
 </script>

@@ -50,11 +50,20 @@
   </section>
 </template>
 
-<script>
+<script lang="ts">
+import Vue from 'vue'
 import axios from '~/plugins/axios'
+// import Component from 'nuxt-class-component'
 
-export default {
-  name: 'id',
+// @Component({
+//   head () {
+//     return {
+//       title: `Drink: ${this.drink.name}`
+//     }
+//   }
+// })
+
+export default class index extends Vue {
   asyncData ({ params, error }) {
     return axios.get('/api/drinks/' + params.id)
       .then((res) => {
@@ -63,7 +72,7 @@ export default {
       .catch((e) => {
         error({ statusCode: 404, message: 'Drink not found' })
       })
-  },
+  }
   data () {
     return {
       drink: {
@@ -81,19 +90,12 @@ export default {
       },
       position: 'left'
     }
-  },
-  methods: {
-    onSubmit () {
-      console.log('submit!')
-    },
-    onCancel () {
-      console.log('Cancel!')
-    }
-  },
-  head () {
-    return {
-      title: `Drink: ${this.drink.name}`
-    }
+  }
+  onSubmit () {
+    console.log('submit!')
+  }
+  onCancel () {
+    console.log('Cancel!')
   }
 }
 </script>

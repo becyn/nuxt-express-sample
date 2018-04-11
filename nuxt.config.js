@@ -40,8 +40,12 @@ module.exports = {
       }
     }
   },
+	modules: [
+		"@nuxtjs/axios",
+		"~/modules/typescript.js"
+  ],
   plugins: [
     '~plugins/element-ui'
   ],
-	mode: 'spa',
+  mode: 'spa'
 }
