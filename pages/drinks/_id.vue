@@ -51,7 +51,7 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
+import { Vue } from 'nuxt-property-decorator'
 import axios from '~/plugins/axios'
 // import Component from 'nuxt-class-component'
 

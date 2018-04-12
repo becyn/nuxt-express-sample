@@ -5,7 +5,7 @@
       Drink MENU
     </h1>
     <h2>
-      new drink
+      new rink
     </h2>
     <el-table :data="drinks">
       <el-table-column header-align="left" align="left" prop="name" label="name"></el-table-column>
@@ -23,11 +23,15 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
 import axios from '~/plugins/axios'
+import { Vue } from 'nuxt-property-decorator'
 
 export default class index extends Vue {
+  created () {
+    console.log('created')
+  }
   data () {
+    console.log('data')
     return {
       drinks: []
     }
@@ -41,7 +45,7 @@ export default class index extends Vue {
   }
   asyncData () {
     const drinks = this.getDrinks()
-    return { drinks }
+    return { drinks: drinks }
   }
   head () {
     return {

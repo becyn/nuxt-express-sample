@@ -14,8 +14,8 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
 import axios from '~/plugins/axios'
+import { Vue } from 'nuxt-property-decorator'
 // import Component from 'nuxt-class-component'
 
 // @Component({
